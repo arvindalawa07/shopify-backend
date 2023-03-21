@@ -37,35 +37,39 @@ app.post("/cookie", async (req, res) => {
 // );
 app.post("/", async (req, res) => {
   console.log("cart id", cart_id);
-  const response = await fetch(
-    "https://ekartbook.myshopify.com/admin/api/2023-01/products.json",
-    {
+  try {
+    const response = await fetch(
+      "https://ekartbook.myshopify.com/admin/api/2023-01/products.json",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "X-Shopify-Access-Token": "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",
+        },
+        body: JSON.stringify(req.body),
+      }
+    );
+    const addedData = await response.json();
+    const variantId = addedData.product.variants[0].id;
+    await fetch("https://ekartbook.myshopify.com/cart/add.json", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        Cookie: cart_id,
         "X-Shopify-Access-Token": "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",
       },
-      body: JSON.stringify(req.body),
-    }
-  );
-  const addedData = await response.json();
-  const variantId = addedData.product.variants[0].id;
-  await fetch("https://ekartbook.myshopify.com/cart/add.json", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Cookie: cart_id,
-      "X-Shopify-Access-Token": "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",
-    },
-    body: JSON.stringify({
-      id: variantId,
-      quantity: 1,
-    }),
-  }).then((res) =>
-    res.json().then((result) => {
-      console.log("Result is here", result);
-    })
-  );
+      body: JSON.stringify({
+        id: variantId,
+        quantity: 1,
+      }),
+    }).then((res) =>
+      res.json().then((result) => {
+        console.log("Result is here", result);
+      })
+    );
+  } catch (error) {
+    console.log("in catch block", error);
+  }
 });
 
 app.listen(PORT, () => {
