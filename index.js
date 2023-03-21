@@ -6,7 +6,7 @@ app.use(express.json());
 const PORT = 3200;
 app.use(
   cors({
-    origin: "https://ekartbook.myshopify.com",
+    origin: "*",
   })
 );
 let cart_id;
@@ -30,11 +30,11 @@ app.post("/cookie", async (req, res) => {
   cart_id = req.body[0];
   console.log("cart id", cart_id);
 });
-app.use(
-  cors({
-    origin: "https://shopify-plugin-next.vercel.app",
-  })
-);
+// app.use(
+//   cors({
+//     origin: "https://shopify-plugin-next.vercel.app",
+//   })
+// );
 app.post("/", async (req, res) => {
   console.log("cart id", cart_id);
   const response = await fetch(
