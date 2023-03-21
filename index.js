@@ -128,6 +128,7 @@ const data = {
 // console.log(cartToken, "=====================>>>>>>>>>>>>>>>>>>>>>>");
 app.post("/cookie", async (req, res) => {
   cart_id = req.body[0];
+  console.log("cart id", cart_id);
 });
 app.post("/", async (req, res) => {
   console.log("cart id", cart_id);
@@ -153,7 +154,7 @@ app.post("/", async (req, res) => {
     },
     body: JSON.stringify({
       id: variantId,
-      quantity: 3,
+      quantity: 1,
     }),
   }).then((res) =>
     res.json().then((result) => {
