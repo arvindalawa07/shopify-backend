@@ -1,12 +1,15 @@
 const express = require("express");
 require("dotenv").config();
+const cors = require("cors");
 const app = express();
 app.use(express.json());
-const request = require("request");
 const PORT = 3200;
+app.use(
+  cors({
+    origin: "https://ekartbook.myshopify.com",
+  })
+);
 let cart_id;
-var myUrl = "https://ekartbook.myshopify.com/cart"; // assuming that this is the url
-const puppeteer = require("puppeteer");
 const data = {
   items: [
     {
