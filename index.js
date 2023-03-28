@@ -30,6 +30,12 @@ app.post("/cookie", async (req, res) => {
   cart_id = req.body[0];
   console.log("cart id", cart_id);
 });
+if (cart_id === null) {
+  app.post("/create_cart", async (req, res) => {
+    console.log("request", req.body);
+    cart_id = req.body.id;
+  });
+}
 // app.use(
 //   cors({
 //     origin: "https://shopify-plugin-next.vercel.app",
