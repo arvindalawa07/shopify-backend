@@ -30,7 +30,11 @@ app.post("/cookie", async (req, res) => {
   cart_id = req.body[0];
   console.log("cart id", cart_id);
 });
-app.use(
+app.post("/get_cart", async (req, res) => {
+  cart_id = req.body[0];
+  console.log("cart id", res);
+});
+capp.use(
   cors({
     origin: "https://shopify-plugin-next.vercel.app",
   })
