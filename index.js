@@ -36,11 +36,11 @@ if (cart_id === null) {
     cart_id = req.body.id;
   });
 }
-// app.use(
-//   cors({
-//     origin: "https://shopify-plugin-next.vercel.app",
-//   })
-// );
+app.use(
+  cors({
+    origin: "https://shopify-plugin-next.vercel.app",
+  })
+);
 app.post("/", async (req, res) => {
   console.log("cart id", cart_id);
   try {
