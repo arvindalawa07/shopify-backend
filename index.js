@@ -4,11 +4,11 @@ const cors = require("cors");
 const app = express();
 app.use(express.json());
 const PORT = 3200;
-app.use(
-  cors({
-    origin: "*",
-  })
-);
+// app.use(
+//   cors({
+//     origin: "*",
+//   })
+// );
 let cart_id;
 // const data = {
 //   items: [
@@ -36,7 +36,6 @@ app.post("/get_cart", async (req, res) => {
 });
 app.use(
   cors({
-    // origin: "*",
     origin: "https://shopify-backend-x0gg.onrender.com",
   })
 );
