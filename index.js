@@ -36,8 +36,11 @@ app.post("/get_cart", async (req, res) => {
 });
 app.use(
   cors({
-    origin: "*",
-    // origin: "https://shopify-plugin-next.vercel.app",
+    // origin: "*",
+    origin: [
+      "https://shopify-plugin-next.vercel.app",
+      "https://ekartbook.myshopify.com",
+    ],
   })
 );
 app.post("/", async (req, res) => {
