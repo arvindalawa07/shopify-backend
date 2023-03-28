@@ -20,8 +20,9 @@ app.use(
     origin: "https://shopify-plugin-next.vercel.app/",
   })
 );
+
 app.post("/", async (req, res) => {
-  console.log("cart id", cart_id);
+  console.log("cart id here", cart_id);
   try {
     const response = await fetch(
       "https://ekartbook.myshopify.com/admin/api/2023-01/products.json",
@@ -35,6 +36,7 @@ app.post("/", async (req, res) => {
       }
     );
     const addedData = await response.json();
+    console.log("added data", addedData);
     const variantId = addedData.product.variants[0].id;
     await fetch("https://ekartbook.myshopify.com/cart/add.json", {
       method: "POST",
