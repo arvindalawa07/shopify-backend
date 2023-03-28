@@ -31,11 +31,7 @@ app.use(
   })
 );
 app.post("/cookie", async (req, res) => {
-  cart_id = req.body;
-  console.log("cart id", cart_id);
-});
-app.post("/get_cart", async (req, res) => {
-  cart_id = req.body[0];
+  cart_id = req.body.cart;
   console.log("cart id", cart_id);
 });
 
