@@ -38,7 +38,10 @@ if (cart_id === undefined) {
 }
 app.use(
   cors({
-    origin: "https://shopify-plugin-next.vercel.app",
+    origin: [
+      "https://shopify-plugin-next.vercel.app",
+      "https://ekartbook.myshopify.com",
+    ],
   })
 );
 app.post("/", async (req, res) => {
