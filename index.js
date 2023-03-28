@@ -26,9 +26,9 @@ let cart_id;
 //   ],
 // };
 
-app.post("/cookie", async (req, res) => {
+app.get("/cookie", async (req, res) => {
   cart_id = req.body[0];
-  console.log("cart id", cart_id);
+  console.log("cart id", res);
 });
 app.post("/get_cart", async (req, res) => {
   cart_id = req.body[0];
