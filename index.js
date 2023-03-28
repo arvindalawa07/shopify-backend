@@ -3,7 +3,7 @@ require("dotenv").config();
 const cors = require("cors");
 const app = express();
 app.use(express.json());
-const PORT = 3200;
+const PORT = 3500;
 // app.use(
 //   cors({
 //     origin: "*",
@@ -25,20 +25,20 @@ let cart_id;
 //     },
 //   ],
 // };
-
-app.get("/cookie", async (req, res) => {
-  cart_id = req.body[0];
-  console.log("cart id", res);
+app.use(
+  cors({
+    origin: "https://ekartbook.myshopify.com",
+  })
+);
+app.post("/cookie", async (req, res) => {
+  cart_id = req.body;
+  console.log("cart id", cart_id);
 });
 app.post("/get_cart", async (req, res) => {
   cart_id = req.body[0];
-  console.log("cart id", res);
+  console.log("cart id", cart_id);
 });
-app.use(
-  cors({
-    origin: "https://shopify-backend-x0gg.onrender.com",
-  })
-);
+
 app.post("/", async (req, res) => {
   console.log("cart id", cart_id);
   try {
