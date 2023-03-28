@@ -34,7 +34,7 @@ app.post("/get_cart", async (req, res) => {
   cart_id = req.body[0];
   console.log("cart id", res);
 });
-capp.use(
+app.use(
   cors({
     origin: "https://shopify-plugin-next.vercel.app",
   })
