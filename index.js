@@ -4,37 +4,22 @@ const cors = require("cors");
 const app = express();
 app.use(express.json());
 const PORT = 3500;
-// app.use(
-//   cors({
-//     origin: "*",
-//   })
-// );
-let cart_id;
-// const data = {
-//   items: [
-//     {
-//       id: 44643284582692,
-//       properties: {
-//         No_of_pages: 100,
-//         binding_type: "spiral",
-//         lines: 1,
-//         cover_type: "soft",
-//       },
-//       quantity: 1,
-//       variant_id: 44643284582692,
-//     },
-//   ],
-// };
 app.use(
   cors({
-    origin: "https://ekartbook.myshopify.com",
+    origin: "*",
   })
 );
+let cart_id;
+
 app.post("/cookie", async (req, res) => {
   cart_id = req.body.cart;
   console.log("cart id", cart_id);
 });
-
+app.use(
+  cors({
+    origin: "https://shopify-plugin-next.vercel.app/",
+  })
+);
 app.post("/", async (req, res) => {
   console.log("cart id", cart_id);
   try {
