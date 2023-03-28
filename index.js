@@ -39,7 +39,7 @@ app.use(
     // origin: "*",
     origin: [
       "https://shopify-plugin-next.vercel.app",
-      "https://ekartbook.myshopify.com",
+      "https://shopify-backend-x0gg.onrender.com",
     ],
   })
 );
