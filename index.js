@@ -42,7 +42,7 @@ app.post("/", async (req, res) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Cookie: "cart=9c9c48af77c987dc94ae7912111971ec",
+        Cookie: `cart=${cart_id}`,
         "X-Shopify-Access-Token": "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",
       },
       body: JSON.stringify({
