@@ -24,20 +24,20 @@ app.use(
 app.post("/", async (req, res) => {
   console.log("cart id here", cart_id);
   try {
-    const response = await fetch(
-      "https://ekartbook.myshopify.com/admin/api/2023-01/products.json",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "X-Shopify-Access-Token": "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",
-        },
-        body: JSON.stringify(req.body),
-      }
-    );
-    const addedData = await response.json();
-    console.log("added data", addedData);
-    const variantId = addedData.product.variants[0].id;
+    // const response = await fetch(
+    //   "https://ekartbook.myshopify.com/admin/api/2023-01/products.json",
+    //   {
+    //     method: "POST",
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //       "X-Shopify-Access-Token": "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",
+    //     },
+    //     body: JSON.stringify(req.body),
+    //   }
+    // );
+    // const addedData = await response.json();
+    // console.log("added data", addedData);
+    // const variantId = addedData.product.variants[0].id;
     await fetch("https://ekartbook.myshopify.com/cart/add.json", {
       method: "POST",
       headers: {
@@ -46,7 +46,7 @@ app.post("/", async (req, res) => {
         "X-Shopify-Access-Token": "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",
       },
       body: JSON.stringify({
-        id: variantId,
+        id: 44837600264484,
         quantity: 1,
       }),
     }).then((res) =>
