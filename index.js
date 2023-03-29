@@ -22,6 +22,8 @@ app.use(
 );
 
 app.post("/", async (req, res) => {
+  console.log("request", req);
+  console.log("response", res);
   console.log("cart id here", cart_id);
   try {
     // const response = await fetch(
@@ -42,7 +44,7 @@ app.post("/", async (req, res) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Cookie: `cart=${cart_id}`,
+        Cookie: `cart=${cart_idg}`,
         "X-Shopify-Access-Token": "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",
       },
       body: JSON.stringify({
