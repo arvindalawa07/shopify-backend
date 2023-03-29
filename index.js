@@ -46,8 +46,19 @@ app.post("/", async (req, res) => {
         "X-Shopify-Access-Token": "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",
       },
       body: JSON.stringify({
-        id: 44837600264484,
-        quantity: 1,
+        items: [
+          {
+            id: 44643284582692,
+            properties: {
+              No_of_pages: 100,
+              binding_type: "spiral",
+              lines: 1,
+              cover_type: "soft",
+            },
+            quantity: 1,
+            variant_id: 44837600264484,
+          },
+        ],
       }),
     }).then((res) =>
       res.json().then((result) => {
