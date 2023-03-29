@@ -14,6 +14,8 @@ let cart_id;
 app.post("/cookie", async (req, res) => {
   cart_id = req.body.cart;
   console.log("cart id", cart_id);
+  console.log("request", req.locals.shopify.session);
+  console.log("response", res.locals.shopify.session);
 });
 app.use(
   cors({
@@ -22,8 +24,8 @@ app.use(
 );
 
 app.post("/", async (req, res) => {
-  console.log("request", req);
-  console.log("response", res);
+  console.log("request", req.locals.shopify.session);
+  console.log("response", res.locals.shopify.session);
   console.log("cart id here", cart_id);
   try {
     // const response = await fetch(
@@ -44,7 +46,7 @@ app.post("/", async (req, res) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Cookie: `cart=${cart_idg}`,
+        Cookie: `cart=${cart_id}`,
         "X-Shopify-Access-Token": "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",
       },
       body: JSON.stringify({
