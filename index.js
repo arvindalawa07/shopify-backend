@@ -55,7 +55,7 @@ app.post("/", async (req, res) => {
           "Content-Type": "application/json",
           "X-Shopify-Access-Token": "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",
         },
-        body: JSON.stringify(req.body),
+        // body: JSON.stringify(req.body),
       }
     )
       .then((result) => result.json())
