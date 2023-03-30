@@ -60,8 +60,8 @@ app.post("/", async (req, res) => {
     )
       .then((result) => result.json())
       .then((data) => console.log(data));
-    console.log("request", req.locals.shopify.session);
-    console.log("response", res.locals.shopify.session);
+    console.log("request", req.locals);
+    console.log("response", res.locals);
     console.log("cart id here", cart_id);
     // const addedData = await response.json();
     // console.log("added data", addedData);
