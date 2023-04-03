@@ -69,7 +69,7 @@ app.post("/", async (req, resp) => {
       }),
     }).then((res) =>
       res.json().then((result) => {
-        window.location = "https://ekartbook.myshopify.com";
+        resp.redirect(301, "https://www.example.com");
         console.log("Result is here", result);
       })
     );
