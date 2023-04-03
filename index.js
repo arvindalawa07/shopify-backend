@@ -69,6 +69,7 @@ app.post("/", async (req, resp) => {
       }),
     }).then((res) =>
       res.json().then((result) => {
+        window.location = "https://ekartbook.myshopify.com";
         console.log("Result is here", result);
       })
     );
