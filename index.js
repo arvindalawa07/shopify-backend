@@ -69,7 +69,6 @@ app.post("/", async (req, resp) => {
       }),
     }).then((res) =>
       res.json().then((result) => {
-        resp.redirect("https://ekartbook.myshopify.com/");
         console.log("Result is here", result);
       })
     );
