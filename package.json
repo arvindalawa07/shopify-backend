@@ -10,7 +10,9 @@
     "nodemon": "^2.0.21",
     "puppeteer": "^19.7.5",
     "request": "^2.88.2",
-    "request-cookies": "^1.1.0"
+    "request-cookies": "^1.1.0",
+    "shopify-api-node": "^3.12.3",
+    "shopify-buy": "^2.18.0"
   },
   "devDependencies": {},
   "scripts": {
