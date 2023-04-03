@@ -15,30 +15,28 @@ let cart_id;
 app.post("/cookie", async (req, res) => {
   cart_id = req.body.cart;
   console.log("cart id", cart_id);
-  console.log("request", req.locals.shopify.session);
-  console.log("response", res.locals.shopify.session);
-  let formData = {
-    items: [
-      {
-        id: 36110175633573,
-        quantity: 2,
-      },
-    ],
-  };
+  // let formData = {
+  //   items: [
+  //     {
+  //       id: 36110175633573,
+  //       quantity: 2,
+  //     },
+  //   ],
+  // };
 
-  fetch(window.Shopify.routes.root + "cart/add.js", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(formData),
-  })
-    .then((response) => {
-      return response.json();
-    })
-    .catch((error) => {
-      console.error("Error:", error);
-    });
+  //   fetch(window.Shopify.routes.root + "cart/add.js", {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify(formData),
+  //   })
+  //     .then((response) => {
+  //       return response.json();
+  //     })
+  //     .catch((error) => {
+  //       console.error("Error:", error);
+  //     });
 });
 app.use(
   cors({
