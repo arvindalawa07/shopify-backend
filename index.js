@@ -15,28 +15,6 @@ let cart_id;
 app.post("/cookie", async (req, res) => {
   cart_id = req.body.cart;
   console.log("cart id", cart_id);
-  // let formData = {
-  //   items: [
-  //     {
-  //       id: 36110175633573,
-  //       quantity: 2,
-  //     },
-  //   ],
-  // };
-
-  //   fetch(window.Shopify.routes.root + "cart/add.js", {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: JSON.stringify(formData),
-  //   })
-  //     .then((response) => {
-  //       return response.json();
-  //     })
-  //     .catch((error) => {
-  //       console.error("Error:", error);
-  //     });
 });
 app.use(
   cors({
@@ -44,7 +22,7 @@ app.use(
   })
 );
 
-app.post("/", async (req, res) => {
+app.post("/", async (req, resp) => {
   try {
     // const response = await fetch(
     //   "https://ekartbook.myshopify.com/admin/api/2023-01/products.json",
@@ -91,6 +69,7 @@ app.post("/", async (req, res) => {
       }),
     }).then((res) =>
       res.json().then((result) => {
+        resp.redirect("https://www.geeksforgeeks.org");
         console.log("Result is here", result);
       })
     );
