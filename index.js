@@ -14,7 +14,7 @@ app.use(
 );
 let cart_id;
 
-app.post("/cookie", async (req, res) => {
+app.post("/cookie", (req, res) => {
   cart_id = req.body.cart;
   console.log("cart id", cart_id);
 });
@@ -24,9 +24,9 @@ app.use(
   })
 );
 
-app.post("/", async (req, resp) => {
+app.post("/", (req, resp) => {
   try {
-    const response = await fetch(
+    const response = fetch(
       "https://ekartbook.myshopify.com/admin/api/2023-01/products.json",
       {
         method: "POST",
@@ -37,10 +37,10 @@ app.post("/", async (req, resp) => {
         body: JSON.stringify(req.body),
       }
     );
-    const addedData = await response.json();
+    const addedData = response.json();
     console.log("added data", addedData);
     const variantId = addedData.product.variants[0].id;
-    await fetch("https://ekartbook.myshopify.com/cart/add.json", {
+    fetch("https://ekartbook.myshopify.com/cart/add.json", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
