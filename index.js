@@ -24,9 +24,9 @@ app.use(
   })
 );
 
-app.post("/", (req, resp) => {
+app.post("/", async (req, resp) => {
   try {
-    const response = fetch(
+    const response = await fetch(
       "https://ekartbook.myshopify.com/admin/api/2023-01/products.json",
       {
         method: "POST",
@@ -36,13 +36,10 @@ app.post("/", (req, resp) => {
         },
         body: JSON.stringify(req.body),
       }
-    )
-      .then((response) => response.json())
-      .then((data) => console.log("data =====>", data));
-    console.log(response);
-    console.log("added data", response);
-    const addedData = response;
-    const variantId = response.product.variants[0].id;
+    );
+    const addedData = await response.json();
+    console.log("======>", addedData);
+    const variantId = addedData.product.variants[0].id;
     fetch("https://ekartbook.myshopify.com/cart/add.json", {
       method: "POST",
       headers: {
