@@ -49,12 +49,8 @@ app.post("/", async (req, resp) => {
         "X-Shopify-Storefront-Access-Token": "f2f6ebcb21512efdc677e1e8a82cd809",
       },
       body: JSON.stringify({
-        items: [
-          {
-            quantity: 1,
-            variant_id: variantId,
-          },
-        ],
+        quantity: 1,
+        variant_id: variantId,
       }),
     }).then((res) =>
       res.json().then((result) => {
