@@ -51,8 +51,8 @@ app.post("/", async (req, resp) => {
       body: JSON.stringify({
         items: [
           {
-            id: addedData.product.id,
             quantity: 1,
+            id: 45019035500836,
           },
         ],
       }),
