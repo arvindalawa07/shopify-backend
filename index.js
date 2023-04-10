@@ -4,6 +4,9 @@ const cors = require("cors");
 const app = express();
 app.use(express.json());
 const PORT = process.env.PORT || 3600;
+const access_token = process.env.ACCESS_TOKEN;
+const storefront_access_token = process.env.STOREFRONT_ACCESS_TOKEN;
+console.log(access_token, storefront_access_token);
 app.use(
   cors({
     origin: "*",
@@ -29,7 +32,7 @@ app.post("/", async (req, resp) => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "X-Shopify-Access-Token": process.env.ACCESS_TOKEN,
+          "X-Shopify-Access-Token": access_token,
         },
         body: JSON.stringify(req.body),
       }
@@ -43,8 +46,7 @@ app.post("/", async (req, resp) => {
         "Content-Type": "application/json",
         Cookie: `cart=${cart_id}`,
         // "X-Shopify-Storefront-Access-Token": "25b46aacf884ff262a21217205e1fa50",
-        "X-Shopify-Storefront-Access-Token":
-          process.env.STOREFRONT_ACCESS_TOKEN,
+        "X-Shopify-Storefront-Access-Token": storefront_access_token,
       },
       body: JSON.stringify({
         items: [
