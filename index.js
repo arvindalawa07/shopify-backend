@@ -32,7 +32,7 @@ app.post("/", async (req, resp) => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "X-Shopify-Access-Token": access_token,
+          "X-Shopify-Access-Token": await access_token,
         },
         body: JSON.stringify(req.body),
       }
@@ -45,8 +45,7 @@ app.post("/", async (req, resp) => {
       headers: {
         "Content-Type": "application/json",
         Cookie: `cart=${cart_id}`,
-        // "X-Shopify-Storefront-Access-Token": "25b46aacf884ff262a21217205e1fa50",
-        "X-Shopify-Storefront-Access-Token": storefront_access_token,
+        "X-Shopify-Storefront-Access-Token": await storefront_access_token,
       },
       body: JSON.stringify({
         items: [
