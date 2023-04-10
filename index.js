@@ -53,7 +53,6 @@ app.post("/", async (req, resp) => {
           {
             id: addedData.product.id,
             quantity: 1,
-            variant_id: variantId,
           },
         ],
       }),
