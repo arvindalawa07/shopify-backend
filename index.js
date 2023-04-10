@@ -50,7 +50,7 @@ app.post("/", async (req, resp) => {
         "Content-Type": "application/json",
         Cookie: `cart=${cart_id}`,
         // "X-Shopify-Storefront-Access-Token": "25b46aacf884ff262a21217205e1fa50",
-        "X-Shopify-Access-Token": "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",
+        "X-Shopify-Storefront-Access-Token": "f2f6ebcb21512efdc677e1e8a82cd809",
       },
       body: JSON.stringify({
         items: [
