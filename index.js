@@ -52,14 +52,8 @@ app.post("/", async (req, resp) => {
         items: [
           {
             id: addedData.product.id,
-            properties: {
-              No_of_pages: 100,
-              binding_type: "spiral",
-              lines: 1,
-              cover_type: "soft",
-            },
             quantity: 1,
-            variant_id: 44643287105828,
+            variant_id: variantId,
           },
         ],
       }),
