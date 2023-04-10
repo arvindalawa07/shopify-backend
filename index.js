@@ -38,7 +38,7 @@ app.post("/", async (req, resp) => {
     const addedData = await response.json();
     console.log("added data", addedData);
     const variantId = addedData.product.variants[0].id;
-    console.log("id ====>", variantId);
+    console.log("id ====>", variantId, "id====>", addedData.product.id);
 
     await fetch("https://ekartbook.myshopify.com/cart/add.json", {
       method: "POST",
@@ -49,8 +49,19 @@ app.post("/", async (req, resp) => {
         "X-Shopify-Storefront-Access-Token": "f2f6ebcb21512efdc677e1e8a82cd809",
       },
       body: JSON.stringify({
-        quantity: 1,
-        variant_id: variantId,
+        items: [
+          {
+            id: addedData.product.id,
+            properties: {
+              No_of_pages: 100,
+              binding_type: "spiral",
+              lines: 1,
+              cover_type: "soft",
+            },
+            quantity: 1,
+            variant_id: 44643287105828,
+          },
+        ],
       }),
     }).then((res) =>
       res.json().then((result) => {
