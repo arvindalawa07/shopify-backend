@@ -30,7 +30,7 @@ app.post("/", async (req, resp) => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "X-Shopify-Access-Token": "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",
+          "X-Shopify-Access-Token": process.env.ACCESS_TOKEN,
         },
         body: JSON.stringify(req.body),
       }
@@ -38,15 +38,14 @@ app.post("/", async (req, resp) => {
     const addedData = await response.json();
     console.log("added data", addedData);
     const variantId = addedData.product.variants[0].id;
-    console.log("id ====>", variantId, "id====>", addedData.product.id);
-
     await fetch("https://ekartbook.myshopify.com/cart/add.json", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         Cookie: `cart=${cart_id}`,
         // "X-Shopify-Storefront-Access-Token": "25b46aacf884ff262a21217205e1fa50",
-        "X-Shopify-Storefront-Access-Token": "f2f6ebcb21512efdc677e1e8a82cd809",
+        "X-Shopify-Storefront-Access-Token":
+          process.env.STOREFRONT_ACCESS_TOKEN,
       },
       body: JSON.stringify({
         items: [
