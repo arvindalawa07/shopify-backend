@@ -34,10 +34,7 @@ app.post("/", async (req, resp) => {
         },
         body: JSON.stringify(req.body),
       }
-    )
-      .then((result) => result.json())
-      .then((data) => console.log(data));
-    console.log("cart id here", cart_id);
+    );
     const addedData = await response.json();
     console.log("added data", addedData);
     const variantId = addedData.product.variants[0].id;
