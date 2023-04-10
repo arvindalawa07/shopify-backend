@@ -24,25 +24,25 @@ app.use(
 
 app.post("/", async (req, resp) => {
   try {
-    // const response = await fetch(
-    //   "https://ekartbook.myshopify.com/admin/api/2023-01/products.json",
-    //   {
-    //     method: "POST",
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //       "X-Shopify-Access-Token": "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",
-    //     },
-    //     body: JSON.stringify(req.body),
-    //   }
-    // )
-    //   .then((result) => result.json())
-    //   .then((data) => console.log(data));
-    // console.log("request", req.locals);
-    // console.log("response", res.locals);
-    // console.log("cart id here", cart_id);
-    // const addedData = await response.json();
-    // console.log("added data", addedData);
-    // const variantId = addedData.product.variants[0].id;
+    const response = await fetch(
+      "https://ekartbook.myshopify.com/admin/api/2023-01/products.json",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "X-Shopify-Storefront-Access-Token":
+            "f2f6ebcb21512efdc677e1e8a82cd809",
+        },
+        body: JSON.stringify(req.body),
+      }
+    )
+      .then((result) => result.json())
+      .then((data) => console.log(data));
+    console.log("cart id here", cart_id);
+    const addedData = await response.json();
+    console.log("added data", addedData);
+    const variantId = addedData.product.variants[0].id;
+    console.log("id ====>", variantId);
 
     await fetch("https://ekartbook.myshopify.com/cart/add.json", {
       method: "POST",
