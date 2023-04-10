@@ -62,7 +62,7 @@ app.post("/", async (req, resp) => {
               lines: 1,
               cover_type: "soft",
             },
-            quantity: 10,
+            quantity: 1,
             variant_id: 44643287105828,
           },
         ],
