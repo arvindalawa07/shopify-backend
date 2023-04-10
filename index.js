@@ -3,7 +3,7 @@ require("dotenv").config();
 const cors = require("cors");
 const app = express();
 app.use(express.json());
-const PORT = process.env.PORT || 3600;
+const PORT = 8080;
 const access_token = process.env.ACCESS_TOKEN;
 const storefront_access_token = process.env.STOREFRONT_ACCESS_TOKEN;
 console.log(access_token, storefront_access_token);
@@ -40,7 +40,7 @@ app.post("/", async (req, resp) => {
     const addedData = await response.json();
     console.log("======>", addedData);
     const variantId = addedData.product.variants[0].id;
-    fetch("https://ekartbook.myshopify.com/cart/add.json", {
+    await fetch("https://ekartbook.myshopify.com/cart/add.json", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -64,38 +64,6 @@ app.post("/", async (req, resp) => {
     console.log("in catch block", error);
   }
 });
-
-// const Shopify = require("shopify-api-node");
-
-// const shopify = new Shopify({
-//   shopName: "https://ekartbook.myshopify.com",
-//   apiKey: "01b09dbe8bc2c58a4930dd89caf91e67",
-//   password: "1d0915e0562954263bccc96b70edfe0f",
-// });
-
-// app.post("/", (req, res) => {
-//   console.log(req.body);
-//   const { productId, title, price, quantity } = req.body;
-//   console.log(shopify.cart);
-//   shopify.cart
-//     .create({
-//       items: [
-//         {
-//           id: "44643287630116",
-//           // title,
-//           quantity: 4,
-//         },
-//       ],
-//     })
-//     .then((cart) => {
-//       res.json(cart);
-//     })
-//     .catch((error) => {
-//       console.error(error);
-//       res
-//         .status(500)
-//         .send("An error occurred while adding the product to the cart");
-//     });
 app.listen(PORT, () => {
   console.log("Server is running on ", PORT);
 });
