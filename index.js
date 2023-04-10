@@ -36,10 +36,13 @@ app.post("/", (req, resp) => {
         },
         body: JSON.stringify(req.body),
       }
-    );
-    const addedData = response.JSON();
-    console.log("added data", addedData);
-    const variantId = addedData.product.variants[0].id;
+    )
+      .then((response) => response.json())
+      .then((data) => console.log("data =====>", data));
+    console.log(response);
+    console.log("added data", response);
+    const addedData = response;
+    const variantId = response.product.variants[0].id;
     fetch("https://ekartbook.myshopify.com/cart/add.json", {
       method: "POST",
       headers: {
