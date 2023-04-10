@@ -52,7 +52,7 @@ app.post("/", async (req, resp) => {
         items: [
           {
             quantity: 1,
-            id: 45019035500836,
+            id: variantId,
           },
         ],
       }),
