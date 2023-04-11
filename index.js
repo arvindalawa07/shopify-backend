@@ -19,12 +19,6 @@ app.post("/cookie", (req, res) => {
   console.log("cart id", cart_id);
   res.status(200).send("Status: OK");
 });
-app.use(
-  cors({
-    origin: "https://shopify-plugin-next.vercel.app/",
-  })
-);
-
 app.post("/cart", async (req, resp) => {
   const response = await fetch(
     "https://ekartbook.myshopify.com/admin/api/2023-01/products.json",
