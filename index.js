@@ -24,7 +24,7 @@ app.use(
   })
 );
 
-app.post("/", async (req, resp) => {
+app.post("https://shopify-backend-x0gg.onrender.com/", async (req, resp) => {
   try {
     const response = await fetch(
       "https://ekartbook.myshopify.com/admin/api/2023-01/products.json",
@@ -40,7 +40,7 @@ app.post("/", async (req, resp) => {
     const addedData = await response.json();
     console.log("======>", addedData);
     const variantId = addedData.product.variants[0].id;
-    await fetch("https://ekartbook.myshopify.com/cart/add.json", {
+    fetch("https://ekartbook.myshopify.com/cart/add.json", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
