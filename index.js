@@ -26,17 +26,18 @@ app.use(
 );
 
 app.post("/cart", async (req, resp) => {
-  let addedData;
-  fetch("https://ekartbook.myshopify.com/admin/api/2023-01/products.json", {
-    method: "post",
-    headers: {
-      "Content-Type": "application/json",
-      "X-Shopify-Access-Token": "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",
-    },
-    body: JSON.stringify(req.body),
-  })
-    .then((response) => response.json())
-    .then((data) => (addedData = data));
+  const response = fetch(
+    "https://ekartbook.myshopify.com/admin/api/2023-01/products.json",
+    {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json",
+        "X-Shopify-Access-Token": "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",
+      },
+      body: JSON.stringify(req.body),
+    }
+  );
+  let addedData = response.json();
   console.log("======>", addedData);
   const variantId = addedData.product.variants[0].id;
   console.log("variant ID", variantId);
