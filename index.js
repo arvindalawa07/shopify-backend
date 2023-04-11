@@ -30,6 +30,7 @@ app.post("/cart", async (req, resp) => {
     "https://ekartbook.myshopify.com/admin/api/2023-01/products.json",
     {
       method: "post",
+      "Acess-Control-Allow-Origin": "*",
       headers: {
         "Content-Type": "application/json",
         "X-Shopify-Access-Token": "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",
@@ -43,6 +44,7 @@ app.post("/cart", async (req, resp) => {
   console.log("variant ID", variantId);
   await fetch("https://ekartbook.myshopify.com/cart/add.json", {
     method: "POST",
+    "Acess-Control-Allow-Origin": "*",
     headers: {
       "Content-Type": "application/json",
       Cookie: `cart=${cart_id}`,
