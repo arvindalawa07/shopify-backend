@@ -45,7 +45,8 @@ app.post("/cart", async (req, resp) => {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      Cookie: `cart=${cart_id}`,
+      // Cookie: `cart=${cart_id}`,
+      Cookies: "bfab0dcf48d21751e79fde6ae1b3b30d",
       "X-Shopify-Storefront-Access-Token": "f2f6ebcb21512efdc677e1e8a82cd809",
     },
     body: JSON.stringify({
