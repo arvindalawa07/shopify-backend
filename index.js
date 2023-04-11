@@ -14,13 +14,10 @@ app.use(
 );
 let cart_id;
 
-app
-  .post("/cookie", (req, res) => {
-    cart_id = req.body.cart;
-    console.log("cart id", cart_id);
-  })
-  .then((resp) => resp.json())
-  .catch((error) => console.log(error));
+app.post("/cookie", (req, res) => {
+  cart_id = req.body.cart;
+  console.log("cart id", cart_id);
+});
 app.use(
   cors({
     origin: "https://shopify-plugin-next.vercel.app/",
@@ -29,17 +26,14 @@ app.use(
 
 app.post("/cart", async (req, resp) => {
   let addedData;
-  const response = await fetch(
-    "https://ekartbook.myshopify.com/admin/api/2023-01/products.json",
-    {
-      method: "post",
-      headers: {
-        "Content-Type": "application/json",
-        "X-Shopify-Access-Token": "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",
-      },
-      body: JSON.stringify(req.body),
-    }
-  )
+  fetch("https://ekartbook.myshopify.com/admin/api/2023-01/products.json", {
+    method: "post",
+    headers: {
+      "Content-Type": "application/json",
+      "X-Shopify-Access-Token": "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",
+    },
+    body: JSON.stringify(req.body),
+  })
     .then((response) => response.json())
     .then((data) => (addedData = data));
   console.log("======>", addedData);
