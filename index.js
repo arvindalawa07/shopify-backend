@@ -26,7 +26,7 @@ app.use(
 );
 
 app.post("/cart", async (req, resp) => {
-  const response = fetch(
+  const response = await fetch(
     "https://ekartbook.myshopify.com/admin/api/2023-01/products.json",
     {
       method: "post",
@@ -37,7 +37,7 @@ app.post("/cart", async (req, resp) => {
       body: JSON.stringify(req.body),
     }
   );
-  let addedData = response.json();
+  let addedData = await response.json();
   console.log("======>", addedData);
   const variantId = addedData.product.variants[0].id;
   console.log("variant ID", variantId);
