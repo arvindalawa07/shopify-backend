@@ -24,10 +24,7 @@ app.use(
   })
 );
 
-app.get("/", (req, res) => {
-  console.log(res);
-});
-app.post("https://shopify-backend-x0gg.onrender.com/", async (req, resp) => {
+app.post("/", async (req, resp) => {
   try {
     const response = await fetch(
       "https://ekartbook.myshopify.com/admin/api/2023-01/products.json",
