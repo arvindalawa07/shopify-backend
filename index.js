@@ -25,43 +25,39 @@ app.use(
 );
 
 app.post("/cart", async (req, resp) => {
-  try {
-    let addedData;
-    const response = await fetch(
-      "https://ekartbook.myshopify.com/admin/api/2023-01/products.json",
-      {
-        method: "post",
-        headers: {
-          "Content-Type": "application/json",
-          "X-Shopify-Access-Token": "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",
-        },
-        body: JSON.stringify(req.body),
-      }
-    )
-      .then((response) => response.json())
-      .then((data) => (addedData = data));
-    console.log("======>", addedData);
-    const variantId = addedData.product.variants[0].id;
-    console.log("variant ID", variantId);
-    fetch("https://ekartbook.myshopify.com/cart/add.json", {
-      method: "POST",
+  let addedData;
+  const response = await fetch(
+    "https://ekartbook.myshopify.com/admin/api/2023-01/products.json",
+    {
+      method: "post",
       headers: {
         "Content-Type": "application/json",
-        Cookie: `cart=${cart_id}`,
-        "X-Shopify-Storefront-Access-Token": "f2f6ebcb21512efdc677e1e8a82cd809",
+        "X-Shopify-Access-Token": "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",
       },
-      body: JSON.stringify({
-        items: [
-          {
-            quantity: 1,
-            id: variantId,
-          },
-        ],
-      }),
-    });
-  } catch (error) {
-    console.log("in catch block", error);
-  }
+      body: JSON.stringify(req.body),
+    }
+  )
+    .then((response) => response.json())
+    .then((data) => (addedData = data));
+  console.log("======>", addedData);
+  const variantId = addedData.product.variants[0].id;
+  console.log("variant ID", variantId);
+  fetch("https://ekartbook.myshopify.com/cart/add.json", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Cookie: `cart=${cart_id}`,
+      "X-Shopify-Storefront-Access-Token": "f2f6ebcb21512efdc677e1e8a82cd809",
+    },
+    body: JSON.stringify({
+      items: [
+        {
+          quantity: 1,
+          id: variantId,
+        },
+      ],
+    }),
+  });
 });
 app.listen(PORT, () => {
   console.log("Server is running on ", PORT);
