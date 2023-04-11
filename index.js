@@ -18,6 +18,8 @@ app.post("/cookie", (req, res) => {
   cart_id = req.body.cart;
   console.log("cart id", cart_id);
   res.write("successfylly data Send");
+  res.status(200).send("Status: OK");
+  res.end();
 });
 app.use(
   cors({
