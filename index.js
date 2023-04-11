@@ -24,7 +24,7 @@ app.use(
   })
 );
 
-app.post("/", async (req, resp) => {
+app.post("/cart", async (req, resp) => {
   try {
     let addedData;
     const response = await fetch(
@@ -58,11 +58,7 @@ app.post("/", async (req, resp) => {
           },
         ],
       }),
-    }).then((res) =>
-      res.json().then((result) => {
-        console.log("Result is here", result);
-      })
-    );
+    });
   } catch (error) {
     console.log("in catch block", error);
   }
