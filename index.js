@@ -29,7 +29,7 @@ app.post("/", async (req, resp) => {
     const response = await fetch(
       "https://ekartbook.myshopify.com/admin/api/2023-01/products.json",
       {
-        method: "POST",
+        method: "post",
         headers: {
           "Content-Type": "application/json",
           "X-Shopify-Access-Token": "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",
