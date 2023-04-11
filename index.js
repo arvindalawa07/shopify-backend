@@ -56,8 +56,12 @@ app.post("/cart", async (req, resp) => {
         },
       ],
     }),
-  });
-  resp.status(200).send("successfull");
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log("===>", data);
+      resp.status(200).send(data);
+    });
 });
 app.listen(PORT, () => {
   console.log("Server is running on ", PORT);
