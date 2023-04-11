@@ -24,6 +24,9 @@ app.use(
   })
 );
 
+app.get("/", (req, res) => {
+  console.log(res);
+});
 app.post("https://shopify-backend-x0gg.onrender.com/", async (req, resp) => {
   try {
     const response = await fetch(
