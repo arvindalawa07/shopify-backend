@@ -38,7 +38,7 @@ app.post("/cart", async (req, resp) => {
     }
   );
   let addedData = await response.json();
-  console.log("======>", addedData);
+  console.log("======>", cart_id, addedData);
   const variantId = addedData.product.variants[0].id;
   console.log("variant ID", variantId);
   await fetch("https://ekartbook.myshopify.com/cart/add.json", {
