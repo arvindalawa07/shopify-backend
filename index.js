@@ -41,11 +41,11 @@ app.post("/cart", async (req, resp) => {
   console.log("======>", addedData);
   const variantId = addedData.product.variants[0].id;
   console.log("variant ID", variantId);
-  fetch("https://ekartbook.myshopify.com/cart/add.json", {
+  await fetch("https://ekartbook.myshopify.com/cart/add.json", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      Cookie: `cart=${cart_id}`,
+      Cookie: "bfab0dcf48d21751e79fde6ae1b3b30d",
       "X-Shopify-Storefront-Access-Token": "f2f6ebcb21512efdc677e1e8a82cd809",
     },
     body: JSON.stringify({
