@@ -14,10 +14,13 @@ app.use(
 );
 let cart_id;
 
-app.post("/cookie", (req, res) => {
-  cart_id = req.body.cart;
-  console.log("cart id", cart_id);
-});
+app
+  .post("/cookie", (req, res) => {
+    cart_id = req.body.cart;
+    console.log("cart id", cart_id);
+  })
+  .then((resp) => resp.json())
+  .catch((error) => console.log(error));
 app.use(
   cors({
     origin: "https://shopify-plugin-next.vercel.app/",
