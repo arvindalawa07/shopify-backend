@@ -58,6 +58,7 @@ app.post("/cart", async (req, resp) => {
       ],
     }),
   });
+  resp.status(200).send("successfull");
 });
 app.listen(PORT, () => {
   console.log("Server is running on ", PORT);
