@@ -12,15 +12,16 @@ app.use(
     origin: "*",
   })
 );
-let cart_id;
 
-app.post("/cookie", (req, res) => {
-  cart_id = req.body.cart;
-  console.log("cart id", cart_id);
-  res.status(200).send("Status: OK");
-});
+// app.post("/cookie", (req, res) => {
+//   cart_id = req.body.cart;
+//   console.log("cart id", cart_id);
+//   res.status(200).send("Status: OK");
+// });
 
 app.post("/cart", async (req, resp) => {
+  const cart_id = req.query;
+  console.log("here is your new cart id ", cart_id);
   const response = await fetch(
     "https://ekartbook.myshopify.com/admin/api/2023-01/products.json",
     {
