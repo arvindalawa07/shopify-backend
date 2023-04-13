@@ -43,7 +43,7 @@ app.post("/cart", async (req, resp) => {
     "Acess-Control-Allow-Origin": "*",
     headers: {
       "Content-Type": "application/json",
-      Cookie: `cart=${cart_id}`,
+      Cookie: cart_id,
       "X-Shopify-Storefront-Access-Token": "f2f6ebcb21512efdc677e1e8a82cd809",
     },
     body: JSON.stringify({
