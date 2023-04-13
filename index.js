@@ -20,7 +20,7 @@ app.use(
 // });
 
 app.post("/cart", async (req, resp) => {
-  const cart_id = req.query;
+  const cart_id = req.query.cart;
   console.log("here is your new cart id ", cart_id);
   const response = await fetch(
     "https://ekartbook.myshopify.com/admin/api/2023-01/products.json",
