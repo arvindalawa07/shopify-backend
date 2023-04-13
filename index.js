@@ -35,14 +35,15 @@ app.post("/cart", async (req, resp) => {
     }
   );
   let addedData = await response.json();
+
   addedData.image = {
-    product_id: addedData.id,
+    product_id: addedData.product.id,
     position: 1,
     created_at: "2018-01-08T12:34:47-05:00",
     updated_at: "2018-01-08T12:34:47-05:00",
     width: 110,
     height: 140,
-    src: "https://www.google.com/url?sa=i&url=https%3A%2F%2Funsplash.com%2Fs%2Fphotos%2Fjpg&psig=AOvVaw1L_D6ACrt85zpaGB5IVuY1&ust=1681474556012000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCNit5vbqpv4CFQAAAAAdAAAAABAE",
+    src: "https://fastly.picsum.photos/id/563/200/200.jpg?hmac=AUY3PTIdje13MIMulUogg4h4AYMKO4XfeEZQaEGw8fQ",
     variant_ids: [{}],
   };
   console.log("======>", cart_id, addedData);
