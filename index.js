@@ -55,7 +55,7 @@ app.post("/cart", async (req, resp) => {
               namespace: "global",
             },
           ],
-          src: "https://fastly.picsum.photos/id/563/200/200.jpg?hmac=AUY3PTIdje13MIMulUogg4h4AYMKO4XfeEZQaEGw8fQ",
+          src: "https://img.freepik.com/free-photo/front-view-stacked-books-ladders-education-day_23-2149241046.jpg?size=626&ext=jpg&ga=GA1.1.1371452657.1681393304&semt=sph",
         },
       }),
     }
