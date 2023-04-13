@@ -55,7 +55,7 @@ app.post("/cart", async (req, resp) => {
               namespace: "global",
             },
           ],
-          src: "https://fastly.picsum.photos/id/563/200/200.jpg?hmac=AUY3PTIdje13MIMulUogg4h4AYMKO4XfeEZQaEGw8fQ",
+          src: "https://picsum.photos/200",
         },
       }),
     }
