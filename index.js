@@ -44,7 +44,20 @@ app.post("/cart", async (req, resp) => {
         "Content-Type": "application/json",
         "X-Shopify-Access-Token": "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",
       },
-      body: JSON.stringify(req.body),
+      body: JSON.stringify({
+        image: {
+          position: 1,
+          metafields: [
+            {
+              key: "new",
+              value: "newvalue",
+              type: "single_line_text_field",
+              namespace: "global",
+            },
+          ],
+          src: "https://fastly.picsum.photos/id/563/200/200.jpg?hmac=AUY3PTIdje13MIMulUogg4h4AYMKO4XfeEZQaEGw8fQ",
+        },
+      }),
     }
   );
 
