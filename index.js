@@ -35,17 +35,19 @@ app.post("/cart", async (req, resp) => {
     }
   );
   let addedData = await response.json();
+  await fetch(
+    `https://ekartbook.myshopify.com/admin/api/2023-01/products/${addedData.product.id}/images.json`,
+    {
+      method: "post",
+      "Acess-Control-Allow-Origin": "*",
+      headers: {
+        "Content-Type": "application/json",
+        "X-Shopify-Access-Token": "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",
+      },
+      body: JSON.stringify(req.body),
+    }
+  );
 
-  addedData.image = {
-    product_id: addedData.product.id,
-    position: 1,
-    created_at: "2018-01-08T12:34:47-05:00",
-    updated_at: "2018-01-08T12:34:47-05:00",
-    width: 110,
-    height: 140,
-    src: "https://fastly.picsum.photos/id/563/200/200.jpg?hmac=AUY3PTIdje13MIMulUogg4h4AYMKO4XfeEZQaEGw8fQ",
-    variant_ids: [{}],
-  };
   console.log("======>", cart_id, addedData);
   const variantId = addedData.product.variants[0].id;
   console.log("variant ID", variantId);
