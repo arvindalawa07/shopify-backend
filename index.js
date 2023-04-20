@@ -29,7 +29,7 @@ app.post("/cart", async (req, resp) => {
   );
   let addedData = await response.json();
   console.log(addedData);
-  fetch(
+  await fetch(
     `https://ekartbook.myshopify.com/admin/api/2023-01/products/${addedData.product.id}/images.json`,
     {
       method: "post",
@@ -57,14 +57,14 @@ app.post("/cart", async (req, resp) => {
 
   const variantId = addedData.product.variants[0].id;
   console.log("variant ID", variantId, cart_id);
-  fetch("https://ekartbook.myshopify.com/cart/add.json", {
+  await fetch("https://ekartbook.myshopify.com/cart/add.json", {
     method: "POST",
     "Acess-Control-Allow-Origin": "*",
     headers: {
       "Content-Type": "application/json",
       Cookie: cart_id,
-      // "X-Shopify-Storefront-Access-Token": "f2f6ebcb21512efdc677e1e8a82cd809",
-      "X-Shopify-Access-Token": "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",
+      "X-Shopify-Storefront-Access-Token": "f2f6ebcb21512efdc677e1e8a82cd809",
+      // "X-Shopify-Access-Token": "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",
     },
     body: JSON.stringify({
       items: [
@@ -77,7 +77,7 @@ app.post("/cart", async (req, resp) => {
   })
     .then((response) => response.json())
     .then((data) => {
-      console.log("===>", data);
+      console.log("response of add to cart api===>", data);
       resp.status(200).send(data);
     });
 });
