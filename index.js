@@ -63,12 +63,13 @@ app.post("/cart", async (req, resp) => {
     headers: {
       "Content-Type": "application/json",
       Cookie: cart_id,
-      "X-Shopify-Storefront-Access-Token": "f2f6ebcb21512efdc677e1e8a82cd809",
+      // "X-Shopify-Storefront-Access-Token": "f2f6ebcb21512efdc677e1e8a82cd809",
+      "X-Shopify-Access-Token": "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",
     },
     body: JSON.stringify({
       items: [
         {
-          quantity: 1,
+          quantity: 4,
           id: variantId,
         },
       ],
