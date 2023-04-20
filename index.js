@@ -16,12 +16,6 @@ app.post("/cart", async (req, resp) => {
   const cart_id = req.query.cart;
   const quantity = req.body.product.quantity;
   const image = req.body.product.properties[0].url;
-  console.log(
-    "here is your new cart id ",
-    quantity,
-    image,
-    req.body.product.properties
-  );
   const response = await fetch(
     "https://ekartbook.myshopify.com/admin/api/2023-01/products.json",
     {
@@ -35,7 +29,6 @@ app.post("/cart", async (req, resp) => {
     }
   );
   let addedData = await response.json();
-  console.log(addedData);
   await fetch(
     `https://ekartbook.myshopify.com/admin/api/2023-01/products/${addedData.product.id}/images.json`,
     {
@@ -56,7 +49,7 @@ app.post("/cart", async (req, resp) => {
               namespace: "global",
             },
           ],
-          src: "https://img.freepik.com/free-photo/front-view-stacked-books-ladders-education-day_23-2149241046.jpg?size=626&ext=jpg&ga=GA1.1.1371452657.1681393304&semt=sph",
+          src: image,
         },
       }),
     }
@@ -75,7 +68,7 @@ app.post("/cart", async (req, resp) => {
     body: JSON.stringify({
       items: [
         {
-          quantity: 4,
+          quantity: quantity,
           id: variantId,
         },
       ],
