@@ -14,7 +14,7 @@ app.use(
 
 app.post("/cart", async (req, resp) => {
   const cart_id = req.query.cart;
-  console.log("here is your new cart id ", cart_id);
+  console.log("here is your new cart id ", req.body);
   const response = await fetch(
     "https://ekartbook.myshopify.com/admin/api/2023-01/products.json",
     {
@@ -64,7 +64,6 @@ app.post("/cart", async (req, resp) => {
       "Content-Type": "application/json",
       Cookie: `cart=${cart_id}`,
       "X-Shopify-Storefront-Access-Token": "f2f6ebcb21512efdc677e1e8a82cd809",
-      // "X-Shopify-Access-Token": "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",
     },
     body: JSON.stringify({
       items: [
