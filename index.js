@@ -15,10 +15,11 @@ app.use(
 app.post("/cart", async (req, resp) => {
   const cart_id = req.query.cart;
   const quantity = req.body.product.quantity;
-  const image = req.body.product.quantity;
+  const image = req.body.product.properties[0].url;
   console.log(
     "here is your new cart id ",
     quantity,
+    image,
     req.body.product.properties
   );
   const response = await fetch(
