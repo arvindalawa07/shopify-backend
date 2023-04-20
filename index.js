@@ -16,7 +16,11 @@ app.post("/cart", async (req, resp) => {
   const cart_id = req.query.cart;
   const quantity = req.body.product.quantity;
   const image = req.body.product.quantity;
-  console.log("here is your new cart id ", req.body.properties);
+  console.log(
+    "here is your new cart id ",
+    quantity,
+    req.body.product.properties
+  );
   const response = await fetch(
     "https://ekartbook.myshopify.com/admin/api/2023-01/products.json",
     {
