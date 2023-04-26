@@ -56,7 +56,7 @@ app.post("/cart", async (req, resp) => {
   );
 
   const variantId = addedData.product.variants[0].id;
-  console.log("variant ID", variantId, cart_id);
+  console.log("variant ID", variantId, cart_id, access_token);
   await fetch("https://navneet-online.myshopify.com/cart/add.json", {
     method: "POST",
     "Acess-Control-Allow-Origin": "*",
