@@ -6,11 +6,7 @@ app.use(express.json());
 const PORT = 8080;
 const access_token = process.env.ACCESS_TOKEN;
 const storefront_access_token = process.env.STOREFRONT_ACCESS_TOKEN;
-app.use(
-  cors({
-    origin: "*",
-  })
-);
+app.use(cors());
 
 app.post("/cart", async (req, resp) => {
   const cart_id = req.query.cart;
@@ -29,6 +25,7 @@ app.post("/cart", async (req, resp) => {
     }
   );
   let addedData = await response.json();
+  console.log("added Data", addedData);
   await fetch(
     `https://navneet-online.myshopify.com/admin/api/2023-01/products/${addedData.product.id}/images.json`,
     {
