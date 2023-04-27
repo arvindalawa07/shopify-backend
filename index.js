@@ -6,8 +6,11 @@ app.use(express.json());
 const PORT = 8080;
 const access_token = process.env.ACCESS_TOKEN;
 const storefront_access_token = process.env.STOREFRONT_ACCESS_TOKEN;
-app.use(cors());
-
+app.use(
+  cors({
+    origin: "https://navneetapp.geexu.org",
+  })
+);
 app.post("/cart", async (req, resp) => {
   const cart_id = req.query.cart;
   const quantity = req.body.product.quantity;
