@@ -11,6 +11,22 @@ app.use(
     origin: "https://navneetapp.geexu.org",
   })
 );
+app.get('/cart',async(req,resp)=>{
+  const cart_id = req.query.cart;
+  const response = await fetch(
+    "https://ekartbook.myshopify.com/cart.json",
+    {
+      method: "GET",
+      "Acess-Control-Allow-Origin": "*",
+      headers: {
+        "Content-Type": "application/json",
+        Cookie: `cart=${cart_id}`,
+        "X-Shopify-Access-Token": access_token,
+      },
+      body: JSON.stringify(req.body),
+    }
+  );
+})
 app.post("/cart", async (req, resp) => {
   const cart_id = req.query.cart;
   const quantity = req.body.product.quantity;
