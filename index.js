@@ -24,11 +24,7 @@ app.get('/cart',async(req,resp)=>{
         "X-Shopify-Access-Token": access_token,
       },
     }
-  ).then((response) => response.json())
-  .then((data) => {
-    console.log("response of add to cart api===>", data);
-    resp.status(200).send(data.item_count);
-  });
+  )
 })
 app.post("/cart", async (req, resp) => {
   const cart_id = req.query.cart;
