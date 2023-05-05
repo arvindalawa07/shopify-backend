@@ -23,7 +23,6 @@ app.get('/cart',async(req,resp)=>{
         Cookie: `cart=${cart_id}`,
         "X-Shopify-Access-Token": access_token,
       },
-      body: JSON.stringify(req.body),
     }
   );
 })
