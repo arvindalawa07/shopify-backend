@@ -13,7 +13,7 @@ app.use(
 );
 app.get('/cart',async(req,resp)=>{
   const cart_id = req.query.cart;
-  const response = await fetch(
+  await fetch(
     "https://ekartbook.myshopify.com/cart.json",
     {
       method: "GET",
@@ -24,7 +24,11 @@ app.get('/cart',async(req,resp)=>{
         "X-Shopify-Access-Token": access_token,
       },
     }
-  );
+  ).then((response) => response.json())
+  .then((data) => {
+    console.log("response of add to cart api===>", data);
+    resp.status(200).send(data);
+  });
 })
 app.post("/cart", async (req, resp) => {
   const cart_id = req.query.cart;
