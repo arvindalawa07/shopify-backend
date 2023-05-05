@@ -16,7 +16,7 @@ app.post("/cart", async (req, resp) => {
   const quantity = req.body.product.quantity;
   const image = req.body.product.properties[0].url;
   const response = await fetch(
-    "https://navneet-online.myshopify.com/admin/api/2023-01/products.json",
+    "https://ekartbook.myshopify.com/admin/api/2023-01/products.json",
     {
       method: "post",
       "Acess-Control-Allow-Origin": "*",
@@ -30,7 +30,7 @@ app.post("/cart", async (req, resp) => {
   let addedData = await response.json();
   console.log("added Data", addedData);
   await fetch(
-    `https://navneet-online.myshopify.com/admin/api/2023-01/products/${addedData.product.id}/images.json`,
+    `https://ekartbook.myshopify.com/admin/api/2023-01/products/${addedData.product.id}/images.json`,
     {
       method: "post",
       "Acess-Control-Allow-Origin": "*",
@@ -57,7 +57,7 @@ app.post("/cart", async (req, resp) => {
 
   const variantId = addedData.product.variants[0].id;
   console.log("variant ID", variantId, cart_id, access_token);
-  await fetch("https://navneet-online.myshopify.com/cart/add.json", {
+  await fetch("https://ekartbook.myshopify.com/cart/add.json", {
     method: "POST",
     "Acess-Control-Allow-Origin": "*",
     headers: {
