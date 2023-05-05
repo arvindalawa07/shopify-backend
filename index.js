@@ -27,7 +27,7 @@ app.get('/cart',async(req,resp)=>{
   ).then((response) => response.json())
   .then((data) => {
     console.log("response of add to cart api===>", data);
-    resp.status(200).send(data);
+    resp.status(200).send(data.item_count);
   });
 })
 app.post("/cart", async (req, resp) => {
