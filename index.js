@@ -28,7 +28,7 @@ app.get('/cart',async(req,resp)=>{
   ).then(data=> data.json())
   .then(result=>{
     console.log(result);
-    resp.json(result.cart_id)
+    resp.json(result.item_count)
   })
 })
 app.post("/cart", async (req, resp) => {
