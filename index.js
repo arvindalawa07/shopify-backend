@@ -26,7 +26,10 @@ app.get('/cart',async(req,resp)=>{
       },
     },
   ).then(data=> data.json())
-  .then(result=>resp.json(result.cart_id))
+  .then(result=>{
+    console.log(result);
+    resp.json(result.cart_id)
+  })
 })
 app.post("/cart", async (req, resp) => {
   const cart_id = req.query.cart;
