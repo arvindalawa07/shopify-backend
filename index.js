@@ -1,6 +1,7 @@
 const express = require("express");
 require("dotenv").config();
 const cors = require("cors");
+const { json } = require("body-parser");
 const app = express();
 app.use(express.json());
 const PORT = 8080;
@@ -23,8 +24,9 @@ app.get('/cart',async(req,resp)=>{
         Cookie: `cart=${cart_id}`,
         "X-Shopify-Access-Token": access_token,
       },
-    }
-  )
+    },
+  ).then(data=> data.json())
+  .then(result=>resp.json(result))
 })
 app.post("/cart", async (req, resp) => {
   const cart_id = req.query.cart;
