@@ -12,7 +12,7 @@ app.use(
     origin: "https://navneetapp.geexu.org",
   })
 );
-app.get('/cart',async(req,resp)=>{
+app.get('/cart/count',async(req,resp)=>{
   const cart_id = req.query.cart;
   await fetch(
     "https://ekartbook.myshopify.com/cart.json",
@@ -31,7 +31,7 @@ app.get('/cart',async(req,resp)=>{
     resp.json(result.item_count)
   })
 })
-app.post("/cart", async (req, resp) => {
+app.post("/cart/add", async (req, resp) => {
   const cart_id = req.query.cart;
   const quantity = req.body.product.quantity;
   const image = req.body.product.properties[0].url;
