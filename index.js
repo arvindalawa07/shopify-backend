@@ -28,7 +28,7 @@ app.get('/cart/count',async(req,resp)=>{
   ).then(data=> data.json())
   .then(result=>{
     console.log(result);
-    resp.json(result.item_count)
+    resp.json(result)
   })
 })
 app.post("/cart/add", async (req, resp) => {
@@ -49,31 +49,31 @@ app.post("/cart/add", async (req, resp) => {
   );
   let addedData = await response.json();
   console.log("added Data", addedData);
-  await fetch(
-    `https://ekartbook.myshopify.com/admin/api/2023-01/products/${addedData.product.id}/images.json`,
-    {
-      method: "post",
-      "Acess-Control-Allow-Origin": "*",
-      headers: {
-        "Content-Type": "application/json",
-        "X-Shopify-Access-Token": access_token,
-      },
-      body: JSON.stringify({
-        image: {
-          position: 1,
-          metafields: [
-            {
-              key: "new",
-              value: "newvalue",
-              type: "single_line_text_field",
-              namespace: "global",
-            },
-          ],
-          src: image,
-        },
-      }),
-    }
-  );
+  // await fetch(
+  //   `https://ekartbook.myshopify.com/admin/api/2023-01/products/${addedData.product.id}/images.json`,
+  //   {
+  //     method: "post",
+  //     "Acess-Control-Allow-Origin": "*",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //       "X-Shopify-Access-Token": access_token,
+  //     },
+  //     body: JSON.stringify({
+  //       image: {
+  //         position: 1,
+  //         metafields: [
+  //           {
+  //             key: "new",
+  //             value: "newvalue",
+  //             type: "single_line_text_field",
+  //             namespace: "global",
+  //           },
+  //         ],
+  //         src: image,
+  //       },
+  //     }),
+  //   }
+  // );
 
   const variantId = addedData.product.variants[0].id;
   console.log("variant ID", variantId, cart_id, access_token);
