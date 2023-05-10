@@ -59,12 +59,37 @@ app.post("/cart/add", async (req, resp) => {
         "X-Shopify-Access-Token": access_token,
       },
       body: JSON.stringify({
-        image: {
+        image:[ {
           position: 1,
           "width": 110,
           "height": 140,
           src: image,
         },
+        {
+          position: 1,
+          "width": 110,
+          "height": 140,
+          src: image,
+        },
+        {
+          position: 1,
+          "width": 110,
+          "height": 140,
+          src: image,
+        },
+        {
+          position: 1,
+          "width": 110,
+          "height": 140,
+          src: image,
+        },
+        {
+          position: 1,
+          "width": 110,
+          "height": 140,
+          src: image,
+        },
+      ]
       }),
     }
   );
