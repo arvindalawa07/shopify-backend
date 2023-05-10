@@ -59,18 +59,55 @@ app.post("/cart/add", async (req, resp) => {
         "X-Shopify-Access-Token": access_token,
       },
       body: JSON.stringify({
-        image: {
+        image: [{
           position: 1,
           metafields: [
             {
               key: "new",
-              value: "newvalue",
+              value: "new value",
               type: "single_line_text_field",
               namespace: "global",
             },
           ],
           src: image,
         },
+        {
+          position: 2,
+          metafields: [
+            {
+              key: "new",
+              value: "new value",
+              type: "single_line_text_field",
+              namespace: "global",
+            },
+          ],
+          src: image,
+        },
+        {
+          position: 3,
+          metafields: [
+            {
+              key: "new",
+              value: "new value",
+              type: "single_line_text_field",
+              namespace: "global",
+            },
+          ],
+          src: image,
+        },
+        {
+          position: 4,
+          metafields: [
+            {
+              key: "new",
+              value: "new value",
+              type: "single_line_text_field",
+              namespace: "global",
+            },
+          ],
+          src: image,
+        },
+      ]
       }),
     }
   );
