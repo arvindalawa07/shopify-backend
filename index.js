@@ -27,7 +27,6 @@ app.get('/cart/count',async(req,resp)=>{
     },
   ).then(data=> data.json())
   .then(result=>{
-    // console.log(result);
     resp.json(result)
   })
 })
@@ -48,7 +47,7 @@ app.post("/cart/add", async (req, resp) => {
     }
   );
   let addedData = await response.json();
-  console.log("added Data", addedData);
+  // console.log("added Data", addedData);
   await fetch(
     `https://ekartbook.myshopify.com/admin/api/2023-01/products/${addedData.product.id}/images.json`,
     {
@@ -91,7 +90,7 @@ app.post("/cart/add", async (req, resp) => {
   })
     .then((response) => response.json())
     .then((data) => {
-      console.log("response of add to cart api===>", data);
+      // console.log("response of add to cart api===>", data);
       resp.status(200).send(data);
     });
 });
