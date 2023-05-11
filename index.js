@@ -27,14 +27,14 @@ app.get('/cart/count',async(req,resp)=>{
     },
   ).then(data=> data.json())
   .then(result=>{
-    console.log(result);
+    // console.log(result);
     resp.json(result)
   })
 })
 app.post("/cart/add", async (req, resp) => {
   const cart_id = req.query.cart;
   const quantity = req.body.product.quantity;
-  const image = req.body.product.properties[0].url;
+  // const image = req.body.product.properties[0].url;
   const response = await fetch(
     "https://ekartbook.myshopify.com/admin/api/2023-01/products.json",
     {
