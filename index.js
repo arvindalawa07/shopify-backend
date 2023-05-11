@@ -63,14 +63,6 @@ app.post("/cart/add", async (req, resp) => {
           position: 1,
           "width": 100,
           "height": 140,
-          metafields: [
-            {
-              key: "new",
-              value: "new value",
-              type: "single_line_text_field",
-              namespace: "global",
-            },
-          ],
           src: image,
         }
       }),
