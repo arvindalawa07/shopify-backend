@@ -1,7 +1,6 @@
 const express = require("express");
 require("dotenv").config();
 const cors = require("cors");
-const { json } = require("body-parser");
 const app = express();
 app.use(express.json());
 const PORT = 8080;
@@ -70,7 +69,7 @@ app.post("/cart/add", async (req, resp) => {
   );
 
   const variantId = addedData.product.variants[0].id;
-  console.log("variant ID", variantId, cart_id, access_token);
+  // console.log("variant ID", variantId, cart_id, access_token);
   await fetch("https://ekartbook.myshopify.com/cart/add.json", {
     method: "POST",
     "Acess-Control-Allow-Origin": "*",
@@ -90,7 +89,7 @@ app.post("/cart/add", async (req, resp) => {
   })
     .then((response) => response.json())
     .then((data) => {
-      // console.log("response of add to cart api===>", data);
+      // console.log("response of add to cart api===>", data);c
       resp.status(200).send(data);
     });
 });
